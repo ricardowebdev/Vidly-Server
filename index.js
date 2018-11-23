@@ -8,13 +8,17 @@ const app      = express();
 const port     = 3000;
 
 app.use(express.json());
-app.use('/api/genres',  genres);
-app.use('/api/clients', clients);
-app.use('/api/movies',  movies);
+// app.use('/api/genres',  genres);
+// app.use('/api/clients', clients);
+// app.use('/api/movies',  movies);
 
 // mongoose.connect('mongodb://localhost/vidly')
 // 	.then(() => console.log('connected to the database'))
 // 	.catch((err) => console.log(err));
+
+app.get('/', (req, res) => {
+	res.send('Está rodando');
+});
 
 app.listen(port, () =>{
 	console.log(`I am listening to the port ${port}...`);
