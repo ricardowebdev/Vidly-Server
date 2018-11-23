@@ -12,9 +12,9 @@ app.use('/api/genres',  genres);
 app.use('/api/clients', clients);
 app.use('/api/movies',  movies);
 
-mongoose.connect('mongodb://localhost/vidly')
-	.then(() => console.log('connected to the database'))
-	.catch((err) => console.log(err));
+// mongoose.connect('mongodb://localhost/vidly')
+// 	.then(() => console.log('connected to the database'))
+// 	.catch((err) => console.log(err));
 
 app.listen(port, () =>{
 	console.log(`I am listening to the port ${port}...`);
