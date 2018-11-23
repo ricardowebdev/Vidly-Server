@@ -5,7 +5,7 @@ const genres   = require('./routes/genres');
 const clients  = require('./routes/clients');
 const movies   = require('./routes/movies');
 const app      = express();
-const port     = 5000;
+const port     = 3000;
 
 app.use(express.json());
 app.use('/api/genres',  genres);
