@@ -20,6 +20,10 @@ app.get('/', (req, res) => {
 	res.send('Está rodando na umbler');
 });
 
+app.get('/test', (req, res) => {
+	res.send('Deu deploy agora');
+});
+
 app.listen(port, () =>{
 	console.log(`I am listening to the port ${port}...`);
 });
