@@ -126,10 +126,10 @@ router.put('/:id', async(req, res) => {
 	try {
 		rental = await Rental.findById(req.params.id);
 
-		rental.dayReturn: req.body.dayReturn || now();
-		rental.feeRent:   req.body.feeRent   || 0;
-		rental.client:    client;
-		rental.movie:     movie;
+		rental.dayReturn = req.body.dayReturn || now();
+		rental.feeRent   = req.body.feeRent   || 0;
+		rental.client    = client;
+		rental.movie     = movie;
 
 		const result = await rental.save();
 
@@ -164,3 +164,5 @@ router.delete('/:id', async(req, res) => {
 		res.status(400).send(err.message)		
 	}
 });
+
+module.exports = router;

@@ -4,11 +4,11 @@ const Joi      = require('mongoose');
 const RentalSchema = mongoose.Schema({
 	dayRetrieve: {
 		type: Date,
-		default: now(),		
+		default: Date.now(),		
 	},
 	dayReturn: {
 		type: Date,		
-	}
+	},
 	feeRent: {
 		type: Number,
 		default: 0
@@ -46,7 +46,7 @@ const RentalSchema = mongoose.Schema({
 	}
 });
 
-const Rental = new mongoose.model('rental', RentalSchema);
+const Rental = mongoose.model('rental', RentalSchema);
 
 function validateRental(rental) {
 	const RentalSchema = {
