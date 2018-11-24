@@ -12,9 +12,16 @@ app.use(express.json());
 // app.use('/api/clients', clients);
 // app.use('/api/movies',  movies);
 
-// mongoose.connect('mongodb://localhost/vidly')
-// 	.then(() => console.log('connected to the database'))
-// 	.catch((err) => console.log(err));
+// Setando propiedades para cada ambiente
+// if(process.env.NODE_ENV !== undefined) {
+// 	mongoose.connect('mongodb://localhost/vidly')
+// 		.then(() => console.log('connected to the database'))
+// 		.catch((err) => console.log(err));	
+// } else {
+// 	mongoose.connect('mongodb://localhost/ricardo')
+// 		.then(() => console.log('connected to the database'))
+// 		.catch((err) => console.log(err));		
+// }
 
 app.get('/', (req, res) => {
 	res.send('Está rodando na umbler');
