@@ -24,8 +24,8 @@ if(process.env.NODE_ENV == 'development') {
 	    user: 'ricardo_souza',
 	    pass: 'develop1990',
 	}
-	const uri = 'mongodb://tatooine.mongodb.umbler.com:36927/apiDb';
-	
+	const uri = 'mongodb://tatooine.mongodb.umbler.com:36927/apidb';
+
 	mongoose.connect(uri, options)
 		.then(() => console.log('connected to the database in umbler'))
 		.catch((err) => console.log(err));		
