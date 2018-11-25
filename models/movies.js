@@ -40,8 +40,8 @@ function validateMovie(movie) {
 						    .default(0),
 
 		genre: {
-			_id: Joi.string()
-				    .required()
+			id: Joi.string()
+				   .required()
 		}						    
 	}
 

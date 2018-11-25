@@ -45,7 +45,7 @@ router.post('/', async(req, res) => {
 
 	// Encontrado a collection de Genre
 	try {
-		genre = await Genre.findById(req.body.genre._id);
+		genre = await Genre.findById(req.body.genre.id);
 		if(!genre)
 			throw new Error("Genre not found");
 	} catch(err) {
@@ -76,33 +76,50 @@ router.post('/', async(req, res) => {
 });
 
 router.put('/:id', async(req, res) => {
-	const {error} = validate(req.body);
-
-	if(error) 
-		return res.send(400).send(error);
-
 	let movie;
+	let genre;
 	let result;
 
+	// Validando requisição http
+	try {
+		const {error} = validate(req.body);
+		if(error) 
+			throw new Error(error); 
+	} catch(err) {
+		return res.send(400).send(err.message);
+	}
+
+	// Encontrando o genre
+	try {	
+		genre = await Genre.findById(req.body.genre.id);
+
+		if(!genre)
+			throw new Error("Genre not Found");
+	} catch(err) {
+		return res.status(404).send(err.message);
+	}	
+
+	// Encontrando o filme selecionado
 	try {	
 		movie = await Movie.findById(req.params.id);
-
 		if(!movie)
 			throw new Error("Movie not Found");
 	} catch(err) {
 		return res.status(404).send(err.message);
 	}	
 
+	// Editando o filme
 	try {	
 		movie.title           = req.body.title;
 		movie.numberInStock   = req.body.numberInStock;
 		movie.dailyRentalRate = req.body.dailyRentalRate;
-		movie.genre           = req.body.genre;
-
-		result = await movie.save();
+		movie.genre           = genre;
+		result                = await movie.save();
 
 		if(!result)
 			throw new Error("Bad Request");
+
+		res.send(result);
 	} catch(err) {
 		res.status(400).send(err.message);
 	}	
