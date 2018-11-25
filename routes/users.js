@@ -93,7 +93,7 @@ router.delete('/:id', async(req, res) => {
 		if(!user)
 			throw new Error("User not found");
 
-		result = await user.remove();
+		result = await User.remove({ _id: req.params.id });
 
 		if(!result)
 			throw new Error("Bad request while removing User");

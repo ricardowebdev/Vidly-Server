@@ -154,7 +154,7 @@ router.delete('/:id', async(req, res) => {
 	}
 
 	try {
-		const result = await Rental.remove(req.params.id);
+		const result = await Rental.remove({ _id: req.params.id });
 
 		if(!result)
 			throw new Error("Bad Request");

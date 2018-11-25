@@ -139,7 +139,7 @@ router.delete('/:id', async(req, res) => {
 	}
 
 	try {
-		result = await Movie.remove(req.params.id);
+		result = await Movie.remove({ _id: req.params.id });
 		
 		if(!result)
 			throw new Error("Bad request");

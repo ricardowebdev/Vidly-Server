@@ -84,7 +84,7 @@ router.delete('/:id', async (req, res) => {
 		if (!genre)
 			throw new Error('Genre not found');
 
-		const result = await Genre.remove(req.params.id);
+		const result = await Genre.remove({ _id: req.params.id });
 		
 		if(!result)
 			throw new Error("Failed while removing genre");

@@ -82,7 +82,7 @@ router.put('/:id', async(req, res) => {
 
 router.delete('/:id', async(req, res) => {
 	try {
-		const client = await Client.findById(req.params.id);
+		const client = await Client.findById({ _id: req.params.id });
 
 		if(!client)
 			throw new Error("Client not found");
