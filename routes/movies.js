@@ -85,7 +85,7 @@ router.put('/:id', async(req, res) => {
 	let result;
 
 	try {	
-		movie = await movie.findById(req.params.id);
+		movie = await Movie.findById(req.params.id);
 
 		if(!movie)
 			throw new Error("Movie not Found");
