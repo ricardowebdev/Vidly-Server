@@ -1,6 +1,7 @@
 const Joi      = require('joi');
 const express  = require('express');
 const mongoose = require('mongoose'); 
+const cors     = require('cors'); 
 
 const genres   = require('./routes/genres');
 const clients  = require('./routes/clients');
@@ -12,6 +13,7 @@ const app      = express();
 const port     = process.env.PORT || 3000;
 
 app.use(express.json());
+app.user(cors());
 app.use('/api/genres',   genres);
 app.use('/api/clients',  clients);
 app.use('/api/movies',   movies);
