@@ -144,9 +144,9 @@ router.delete('/:id', async(req, res) => {
 		if(!result)
 			throw new Error("Bad request");
 
-		req.send(movie);
+		res.send(movie);
 	} catch(err) {
-		req.status(400).send(err.message);
+		res.status(400).send(err.message);
 	}
 });
 
