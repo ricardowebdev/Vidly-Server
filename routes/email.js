@@ -1,6 +1,8 @@
 const express    = require('express');
 const router     = express.Router();
 const nodemailer = require('nodemailer');
+var Request      = require('request');
+
 
 router.get('/', async (req, res) => {
     const transporter = configuration();
@@ -14,6 +16,15 @@ router.get('/', async (req, res) => {
     } catch(error) {
         res.status(400).send(error);
     }
+});
+
+router.get('/test', async (req, res) => {
+    Request('https://pokeapi.co/api/v2/pokemon/1/', (error, response, body) => {
+        if(error) {
+            res.status(400).send(error);
+        }
+        res.send(JSON.parse(body));
+    });
 });
 
 function configuration() {
