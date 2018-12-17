@@ -16,12 +16,12 @@ const port     = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors());
 
-app.use('/sendmail',     emails);
-app.use('/api/genres',   genres);
-app.use('/api/clients',  clients);
-app.use('/api/movies',   movies);
-app.use('/api/rentals',  rentals);
-app.use('/api/users',    users);
+app.use('/sendmail',    emails);
+app.use('/api/genres',  genres);
+app.use('/api/clients', clients);
+app.use('/api/movies',  movies);
+app.use('/api/rentals', rentals);
+app.use('/api/users',   users);
 
 // Setando propiedades para cada ambiente
 if(process.env.NODE_ENV == 'development') {
@@ -39,14 +39,6 @@ if(process.env.NODE_ENV == 'development') {
 		.then(() => console.log('connected to the database in umbler'))
 		.catch((err) => console.log(err));		
 }
-
-app.get('/', (req, res) => {
-	res.send('A api está funcionando para mais informações consultar: ' + '<a target="_blank" href="https://github.com/ricardowebdev/nodeApi/blob/master/README.md">Documentação</a>');
-});
-
-app.get('/tom', (req, res) => {
-	res.send('Oiii meu nome é tom');
-});
 
 app.listen(port, () =>{
 	console.log(`I am listening to the port ${port}...`);

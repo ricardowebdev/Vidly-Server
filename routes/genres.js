@@ -39,7 +39,8 @@ router.post('/', async (req, res) => {
 
 	try {
 		const genre = new Genre({
-			name: req.body.name
+			name:   req.body.name,
+			active: req.body.active || true
 		});
 
 		const result = await genre.save();
@@ -66,6 +67,7 @@ router.put('/:id', async (req, res) => {
 			throw new Error('Genre not found');
 
 		genre.name   = req.body.name;
+		genre.active = req.body.active || true;
 		const result = await genre.save();
 
 		if(!result)
