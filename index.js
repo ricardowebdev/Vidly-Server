@@ -1,21 +1,21 @@
-const Joi        = require('joi');
+// Includes da aplicação
 const express    = require('express');
 const mongoose   = require('mongoose'); 
 const cors       = require('cors');
-
 const emails   = require('./routes/email');
 const genres   = require('./routes/genres');
 const clients  = require('./routes/clients');
 const movies   = require('./routes/movies');
 const rentals  = require('./routes/rentals');
 const users    = require('./routes/users');
-
 const app      = express();
 const port     = process.env.PORT || 3000;
 
+// Preparando a API
 app.use(express.json());
 app.use(cors());
 
+// Rotas da API
 app.use('/sendmail',    emails);
 app.use('/api/genres',  genres);
 app.use('/api/clients', clients);
