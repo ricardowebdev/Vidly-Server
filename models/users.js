@@ -21,6 +21,10 @@ const UserSchema = mongoose.Schema({
 		minlength: 3,
 		maxlength: 255				
 	},
+	active: {
+		type: Boolean,
+		default: true		
+	}
 });
 
 const User = mongoose.model('user', UserSchema);
@@ -42,6 +46,10 @@ function validateUser(user) {
 				  .min(3)
 				  .max(255)
 				  .required(),
+		
+		active: Joi.optional(),
+
+		_id: Joi.optional()
 	}
 
 	return Joi.validate(user, UserSchema);	

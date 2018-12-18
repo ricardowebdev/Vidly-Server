@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
 		const users = await User
 			.find()
 			.sort({ name: 1})
-			.select({ _id: 1, name: 1, email: 1});
+			.select({ _id: 1, name: 1, email: 1, active: 1});
 
 		if(!users)
 			throw new Error("Any users inserted yet");
@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
 	try {
 		const user = await User.findById(req.params.id)
-							   .select({ _id: 1, name: 1, email: 1});
+							   .select({ _id: 1, name: 1, email: 1, active: 1});
 			
 		if(!user)
 			throw new Error("User not found");			
@@ -42,7 +42,8 @@ router.post('/', async (req, res) => {
 		return res.status(400).send(error.details[0].message);
 
 	try {		
-		const user    = new User(_.pick(req.body, ['name', 'email', 'password']));
+		req.body.active = req.body.active || true;
+		const user    = new User(_.pick(req.body, ['name', 'email', 'password', 'active']));
 		const salt    = await bcrypt.genSalt(10);
 		user.password = await bcrypt.hashSync(user.password, salt);
 		const result  = await user.save()
@@ -50,7 +51,7 @@ router.post('/', async (req, res) => {
 		if (!result)
 			throw new Error('Bad Request...');	
 		
-		res.send(_.pick(user, ['_id', 'name', 'email']));
+		res.send(_.pick(user, ['_id', 'name', 'email', 'active']));
 	} catch(err) {
 		res.status(400).send(err.message);
 	}
@@ -64,20 +65,21 @@ router.put('/:id', async(req, res) => {
 	
 	try {
 		const user = await User.findById(req.params.id)
-							   .select({ _id: 1, name: 1, email: 1});
+							   .select({ _id: 1, name: 1, email: 1, active: 1});
 		if(!user)
 			throw new Error("User not found");
 
 		user.name     = req.body.name;
 		user.email    = req.body.email;
-		user.password = req.body.passowrd;
+		user.password = req.body.password;
+		user.active   = req.body.active || true;
 
 		const result = await user.save();
 
 		if(!result)
 			throw new Error("Bad request while saving new User");
 
-		res.send(_.pick(user, ['_id', 'name', 'email']));
+		res.send(_.pick(user, ['_id', 'name', 'email', 'active']));
 
 	} catch(err) {
 		res.status(404).send(err.message);
@@ -87,7 +89,7 @@ router.put('/:id', async(req, res) => {
 router.delete('/:id', async(req, res) => {
 	try {
 		const user = await User.findById(req.params.id)
-							   .select({ _id: 1, name: 1, email: 1});
+							   .select({ _id: 1, name: 1, email: 1, active: 1});
 
 		if(!user)
 			throw new Error("User not found");
