@@ -18,7 +18,6 @@ app.use(express.static('public'));
 app.use(cors());
 
 // Rotas da API
-app.use('/sendmail',    emails);
 app.use('/api/genres',  genres);
 app.use('/api/clients', clients);
 app.use('/api/movies',  movies);
