@@ -1,60 +1,18 @@
-# NodeApi
+<h1 style="text-align: center">NodeApi</h1>
 
-* Descrição do Projeto *
+<p style="text-align: center"><b>Descrição do Projeto</b></p>
 
-Estou construindo uma API com node + Mongodb e futuramente um front com angular para consumila e deixa-la de portifólio
+<p style="text-align: center">API RESTfull com node + Mongodb e express para simular uma simples locadora de filmes, há um front end, construido com Angular 7 que consome essa mesma API, utilizando todos os recursos do MEAN stack</p><hr>
 
+<h3>Requisitos</h3>
 
-Requisitos 
+<ul>
+    <li>Nodejs 8+</li>
+    <li>Mongodb 3.6.3+ rodando na porta default</li>
+    <li>Clonar o projeto</li>
+    <li>Acessar a pasta do projeto pelo terminal, rodar o comando npm install</li>
+    <li>Rodar o servidor node via nodemon ou installar o plugin do P2M</li>
+    <li>Acessar via POSTMAN ou qualquer outro serviço que consuma rotas HTTP</li>
+</ul><hr>
 
-1 - Nodejs 8+
-
-2 - Mongodb 3.6.3+ rodando na porta default
-
-3 - Clonar o projeto
-
-4 - Acessar a pasta do projeto pelo terminal, rodar o comando npm install
-
-5 - Rodar o servidor node
-
-6 - Acessar via POSTMAN ou qualquer outro serviço que consuma rotas HTTP
-
-Como usar 
-
-GET    /api/genres -> traz a lista de todos os generos cadastrados
-
-POST   /api/genres -> body { name: "nome do genero" }
-
-GET    /api/genres/:id -> lista genero selecionado
-
-PUT    /api/genres/:id -> body { name: "novo nome" } edita o genero selecionado
-
-DELETE /api/genre/:id -> deleta o genero pelo ID
-
-
-GET   /api/movies -> lista dos filmes cadastrados
-
-GET   /api/movies/:id -> traz o filme selecionado
-
-POST  /api/movies -> 
-{ 
-   title:           "nome",
-   numberInStock:   3,
-   dailyRentalRate: 4.50,
-   genre: {
-       _id: iddegenero
-   }
-}
-
-PUT /api/movies -> 
-{ 
-    title:           "nome",
-    numberInStock:   3,
-    dailyRentalRate: 4.50,
-    genre: {
-        _id:  iddegenero,
-        name: nomedogenero
-    }                          
-} 
-
-DELETE /api/movies/:id -> deleta o filme selecionado
+<a style="text-align: center" href="https://www.ricardowebdev.net/apidoc" target="_blank" />Documentação da API</a>

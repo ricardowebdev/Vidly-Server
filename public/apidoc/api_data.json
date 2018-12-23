@@ -621,6 +621,98 @@
     "groupTitle": "Genre"
   },
   {
+    "type": "delete",
+    "url": "/api/movie/:id",
+    "title": "Remove um filme",
+    "name": "DeleteMovie",
+    "group": "Movie",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<ul> <li>unico do gênero</li> </ul>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<ul> <li>id do filme</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "numberInStock",
+            "description": "<ul> <li>Numero de filmes em stock</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "dailyRentalRate",
+            "description": "<ul> <li>Preço da diaria</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<ul> <li>Titulo do filme</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "genre",
+            "description": "<ul> <li>Gênero do filme</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "genre.active",
+            "description": "<ul> <li>Se o gênero está ativo ou não</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "genre._id",
+            "description": "<ul> <li>Id unico do gênero</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "genre.name",
+            "description": "<ul> <li>Nome do Gênero</li> </ul>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"_id\": \"5c16cac2932de1301f063d63\", \n   \"numberInStock\": 2,\n   \"dailyRentalRate\": 3,\n   \"title\": \"O pequenino\",\n   \"genre\": {\n     \"_id\": \"5bf7c785b9ff941f03a238bd\",\n     \"active\": true,\n     \"name\": \"comedy\"\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/movies.js",
+    "groupTitle": "Movie"
+  },
+  {
     "type": "get",
     "url": "/api/movies/:id",
     "title": "Solicita um filme pelo ID",
@@ -780,9 +872,129 @@
   },
   {
     "type": "post",
-    "url": "/api/client/:id",
+    "url": "/api/client",
     "title": "Insere um novo filme",
     "name": "PostClient",
+    "group": "Movie",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "numberInStock",
+            "description": "<ul> <li>Numero de filmes em stock</li> </ul>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "dailyRentalRate",
+            "description": "<ul> <li>Preço da diaria</li> </ul>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<ul> <li>Titulo do filme</li> </ul>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "genre",
+            "description": "<ul> <li>Gênero do filme</li> </ul>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "genre.id",
+            "description": "<ul> <li>Id unico do gênero</li> </ul>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<ul> <li>id do filme</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "numberInStock",
+            "description": "<ul> <li>Numero de filmes em stock</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "dailyRentalRate",
+            "description": "<ul> <li>Preço da diaria</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<ul> <li>Titulo do filme</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "genre",
+            "description": "<ul> <li>Gênero do filme</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "genre.active",
+            "description": "<ul> <li>Se o gênero está ativo ou não</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "genre._id",
+            "description": "<ul> <li>Id unico do gênero</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "genre.name",
+            "description": "<ul> <li>Nome do Gênero</li> </ul>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"_id\": \"5c16cac2932de1301f063d63\", \n   \"numberInStock\": 2,\n   \"dailyRentalRate\": 3,\n   \"title\": \"O pequenino\",\n   \"genre\": {\n     \"_id\": \"5bf7c785b9ff941f03a238bd\",\n     \"active\": true,\n     \"name\": \"comedy\"\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/movies.js",
+    "groupTitle": "Movie"
+  },
+  {
+    "type": "put",
+    "url": "/api/client/:id",
+    "title": "Altera um cliente pelo id",
+    "name": "PutClient",
     "group": "Movie",
     "parameter": {
       "fields": {
@@ -821,6 +1033,13 @@
             "optional": false,
             "field": "genre",
             "description": "<ul> <li>Gênero do filme</li> </ul>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "genre.id",
+            "description": "<ul> <li>Id unico do gênero</li> </ul>"
           }
         ]
       }
@@ -828,13 +1047,6 @@
     "success": {
       "fields": {
         "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "genre.id",
-            "description": "<ul> <li>Id unico do gênero</li> </ul>"
-          },
           {
             "group": "Success 200",
             "type": "String",

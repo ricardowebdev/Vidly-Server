@@ -99,16 +99,15 @@ router.get('/:id', async(req, res) => {
 });
 
 /**
- * @api {post} /api/client/:id Insere um novo filme
+ * @api {post} /api/client Insere um novo filme
  * @apiName PostClient
  * @apiGroup Movie
  *
- * @apiParam {Number} id - unico do cliente.
  * @apiParam {Number} numberInStock  - Numero de filmes em stock
  * @apiParam {Number} dailyRentalRate - Preço da diaria
  * @apiParam {String} title - Titulo do filme
  * @apiParam {Object} genre - Gênero do filme
- * @apiSuccess {String} genre.id - Id unico do gênero 
+ * @apiParam {String} genre.id - Id unico do gênero 
  * 
  * @apiSuccess {String} _id - id do filme
  * @apiSuccess {Boolean} numberInStock  - Numero de filmes em stock
@@ -179,6 +178,42 @@ router.post('/', async(req, res) => {
 	}
 });
 
+/**
+ * @api {put} /api/client/:id Altera um cliente pelo id
+ * @apiName PutClient
+ * @apiGroup Movie
+ *
+ * @apiParam {Number} id - unico do cliente.
+ * @apiParam {Number} numberInStock  - Numero de filmes em stock
+ * @apiParam {Number} dailyRentalRate - Preço da diaria
+ * @apiParam {String} title - Titulo do filme
+ * @apiParam {Object} genre - Gênero do filme
+ * @apiParam {String} genre.id - Id unico do gênero 
+ * 
+ * @apiSuccess {String} _id - id do filme
+ * @apiSuccess {Boolean} numberInStock  - Numero de filmes em stock
+ * @apiSuccess {String} dailyRentalRate - Preço da diaria
+ * @apiSuccess {String} title - Titulo do filme
+ * @apiSuccess {Object} genre - Gênero do filme
+ * @apiSuccess {String} genre.active - Se o gênero está ativo ou não
+ * @apiSuccess {String} genre._id - Id unico do gênero
+ * @apiSuccess {String} genre.name - Nome do Gênero
+ * 
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *        "_id": "5c16cac2932de1301f063d63", 
+ *        "numberInStock": 2,
+ *        "dailyRentalRate": 3,
+ *        "title": "O pequenino",
+ *        "genre": {
+ *          "_id": "5bf7c785b9ff941f03a238bd",
+ *          "active": true,
+ *          "name": "comedy"
+ *        }
+ *     }
+ *
+ */
 router.put('/:id', async(req, res) => {
 	let movie;
 	let genre;
@@ -229,6 +264,37 @@ router.put('/:id', async(req, res) => {
 	}	
 });
 
+/**
+ * @api {delete} /api/movie/:id Remove um filme
+ * @apiName DeleteMovie
+ * @apiGroup Movie
+ * 
+ * @apiParam {Number} id - unico do gênero
+ *
+ * @apiSuccess {String} _id - id do filme
+ * @apiSuccess {Boolean} numberInStock  - Numero de filmes em stock
+ * @apiSuccess {String} dailyRentalRate - Preço da diaria
+ * @apiSuccess {String} title - Titulo do filme
+ * @apiSuccess {Object} genre - Gênero do filme
+ * @apiSuccess {String} genre.active - Se o gênero está ativo ou não
+ * @apiSuccess {String} genre._id - Id unico do gênero
+ * @apiSuccess {String} genre.name - Nome do Gênero
+ * 
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *        "_id": "5c16cac2932de1301f063d63", 
+ *        "numberInStock": 2,
+ *        "dailyRentalRate": 3,
+ *        "title": "O pequenino",
+ *        "genre": {
+ *          "_id": "5bf7c785b9ff941f03a238bd",
+ *          "active": true,
+ *          "name": "comedy"
+ *        }
+ *     }
+ *
+ */
 router.delete('/:id', async(req, res) => {
 	let movie;
 	let result;

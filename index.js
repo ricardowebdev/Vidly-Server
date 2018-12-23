@@ -1,15 +1,17 @@
 // Includes da aplicação
-const express  = require('express');
-const mongoose = require('mongoose'); 
-const cors     = require('cors');
-const emails   = require('./routes/email');
-const genres   = require('./routes/genres');
-const clients  = require('./routes/clients');
-const movies   = require('./routes/movies');
-const rentals  = require('./routes/rentals');
-const users    = require('./routes/users');
-const app      = express();
-const port     = process.env.PORT || 3000;
+const express    = require('express');
+const mongoose   = require('mongoose'); 
+const cors       = require('cors');
+const emails     = require('./routes/email');
+const genres     = require('./routes/genres');
+const clients    = require('./routes/clients');
+const movies     = require('./routes/movies');
+const rentals    = require('./routes/rentals');
+const users      = require('./routes/users');
+const filesystem = require('fs');
+const app        = express();
+const port       = process.env.PORT || 3000;
+
 
 // Preparando a API
 app.use(express.json());
@@ -40,6 +42,11 @@ if(process.env.NODE_ENV == 'development') {
 		.then(() => console.log('connected to the database in umbler'))
 		.catch((err) => console.log(err));		
 }
+
+app.get('/', (req, res) => {
+	const contents = filesystem.readFileSync('README.md').toString();
+	res.send(contents);
+});
 
 app.listen(port, () =>{
 	console.log(`I am listening to the port ${port}...`);
