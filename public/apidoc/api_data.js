@@ -1,10 +1,10 @@
 define({ "api": [
   {
     "type": "delete",
-    "url": "/api/client/:id",
+    "url": "/api/clients/:id",
     "title": "Remove um cliente",
     "name": "DeleteClient",
-    "group": "Client",
+    "group": "Clients",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -54,14 +54,14 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "routes/clients.js",
-    "groupTitle": "Client"
+    "groupTitle": "Clients"
   },
   {
     "type": "put",
-    "url": "/api/client/:id",
+    "url": "/api/clients/:id",
     "title": "Edita um cliente",
     "name": "EditClient",
-    "group": "Client",
+    "group": "Clients",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -132,14 +132,14 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "routes/clients.js",
-    "groupTitle": "Client"
+    "groupTitle": "Clients"
   },
   {
     "type": "get",
-    "url": "/api/client/:id",
+    "url": "/api/clients/:id",
     "title": "Solicita um cliente pelo id",
     "name": "GetClient",
-    "group": "Client",
+    "group": "Clients",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -196,14 +196,14 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "routes/clients.js",
-    "groupTitle": "Client"
+    "groupTitle": "Clients"
   },
   {
     "type": "get",
-    "url": "/api/client/",
+    "url": "/api/clients/",
     "title": "Solicita lista de clientes",
     "name": "GetClients",
-    "group": "Client",
+    "group": "Clients",
     "success": {
       "fields": {
         "Success 200": [
@@ -247,14 +247,14 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "routes/clients.js",
-    "groupTitle": "Client"
+    "groupTitle": "Clients"
   },
   {
     "type": "post",
-    "url": "/api/client",
+    "url": "/api/clients",
     "title": "Insere um novo cliente",
     "name": "PostClient",
-    "group": "Client",
+    "group": "Clients",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -325,14 +325,14 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "routes/clients.js",
-    "groupTitle": "Client"
+    "groupTitle": "Clients"
   },
   {
     "type": "delete",
-    "url": "/api/genre/:id",
+    "url": "/api/genres/:id",
     "title": "Remove um gênero",
     "name": "DeleteGenre",
-    "group": "Genre",
+    "group": "Genres",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -382,14 +382,14 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "routes/genres.js",
-    "groupTitle": "Genre"
+    "groupTitle": "Genres"
   },
   {
     "type": "put",
-    "url": "/api/genre/:id",
+    "url": "/api/genres/:id",
     "title": "Edita um gênero",
     "name": "EditGenre",
-    "group": "Genre",
+    "group": "Genres",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -453,14 +453,14 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "routes/genres.js",
-    "groupTitle": "Genre"
+    "groupTitle": "Genres"
   },
   {
     "type": "get",
-    "url": "/api/genre/:id",
+    "url": "/api/genres/:id",
     "title": "Solicita um gênero pelo id",
     "name": "GetGenre",
-    "group": "Genre",
+    "group": "Genres",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -510,14 +510,14 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "routes/genres.js",
-    "groupTitle": "Genre"
+    "groupTitle": "Genres"
   },
   {
     "type": "get",
     "url": "/api/gernres/",
     "title": "Solicita lista de generos",
     "name": "GetGenres",
-    "group": "Genre",
+    "group": "Genres",
     "success": {
       "fields": {
         "Success 200": [
@@ -554,14 +554,14 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "routes/genres.js",
-    "groupTitle": "Genre"
+    "groupTitle": "Genres"
   },
   {
     "type": "post",
-    "url": "/api/genre",
+    "url": "/api/genres",
     "title": "Insere um novo gênero",
     "name": "PostGenre",
-    "group": "Genre",
+    "group": "Genres",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -618,14 +618,14 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "routes/genres.js",
-    "groupTitle": "Genre"
+    "groupTitle": "Genres"
   },
   {
     "type": "delete",
-    "url": "/api/movie/:id",
+    "url": "/api/movies/:id",
     "title": "Remove um filme",
     "name": "DeleteMovie",
-    "group": "Movie",
+    "group": "Movies",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -710,14 +710,14 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "routes/movies.js",
-    "groupTitle": "Movie"
+    "groupTitle": "Movies"
   },
   {
     "type": "get",
     "url": "/api/movies/:id",
     "title": "Solicita um filme pelo ID",
     "name": "GetMovie",
-    "group": "Movie",
+    "group": "Movies",
     "success": {
       "fields": {
         "Success 200": [
@@ -789,14 +789,14 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "routes/movies.js",
-    "groupTitle": "Movie"
+    "groupTitle": "Movies"
   },
   {
     "type": "get",
     "url": "/api/movies/",
     "title": "Solicita lista de filmes",
     "name": "GetMovies",
-    "group": "Movie",
+    "group": "Movies",
     "success": {
       "fields": {
         "Success 200": [
@@ -868,14 +868,14 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "routes/movies.js",
-    "groupTitle": "Movie"
+    "groupTitle": "Movies"
   },
   {
     "type": "post",
-    "url": "/api/client",
+    "url": "/api/movies",
     "title": "Insere um novo filme",
-    "name": "PostClient",
-    "group": "Movie",
+    "name": "PostMovies",
+    "group": "Movies",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -988,14 +988,14 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "routes/movies.js",
-    "groupTitle": "Movie"
+    "groupTitle": "Movies"
   },
   {
     "type": "put",
-    "url": "/api/client/:id",
+    "url": "/api/movies/:id",
     "title": "Altera um cliente pelo id",
-    "name": "PutClient",
-    "group": "Movie",
+    "name": "PutMovies",
+    "group": "Movies",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -1115,6 +1115,285 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "routes/movies.js",
-    "groupTitle": "Movie"
+    "groupTitle": "Movies"
+  },
+  {
+    "type": "put",
+    "url": "/api/users/:id",
+    "title": "Edita um usuário no sistema",
+    "name": "EditUser",
+    "group": "Users",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "id",
+            "description": "<ul> <li>unico do usuário</li> </ul>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "active",
+            "description": "<ul> <li>Se o usuário está ativo ou não</li> </ul>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<ul> <li>nome do usuário</li> </ul>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<ul> <li>Telefone do usuário</li> </ul>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<ul> <li>Nova senha para o usuário</li> </ul>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<ul> <li>id do usuario</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "active",
+            "description": "<ul> <li>se o usuário está ativo ou não</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<ul> <li>nome do usuário</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<ul> <li>E-mail do usuário</li> </ul>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"_id\": \"5c18c072c726951a8657ba47\", \n   \"active\": true,\n   \"name\": \"ricardo.souza\",\n   \"email\": \"ricardo.tecnology@gmail.com\"\n},",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/users.js",
+    "groupTitle": "Users"
+  },
+  {
+    "type": "get",
+    "url": "/api/users/",
+    "title": "Solicita um usuário pelo seu ID",
+    "name": "GetUser",
+    "group": "Users",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<ul> <li>id do usuario</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "active",
+            "description": "<ul> <li>se o usuário está ativo ou não</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<ul> <li>nome do usuário</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<ul> <li>E-mail do usuário</li> </ul>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"_id\": \"5c18c072c726951a8657ba47\", \n   \"active\": true,\n   \"name\": \"ricardo.souza\",\n   \"email\": \"ricardo.tecnology@gmail.com\"\n},",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/users.js",
+    "groupTitle": "Users"
+  },
+  {
+    "type": "get",
+    "url": "/api/users/",
+    "title": "Solicita lista de usuarios",
+    "name": "GetUsers",
+    "group": "Users",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<ul> <li>id do usuario</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "active",
+            "description": "<ul> <li>se o usuário está ativo ou não</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<ul> <li>nome do usuário</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<ul> <li>E-mail do usuário</li> </ul>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"_id\": \"5c18c072c726951a8657ba47\", \n   \"active\": true,\n   \"name\": \"ricardo.souza\",\n   \"email\": \"ricardo.tecnology@gmail.com\"\n}, \n{\n   \"_id\": \"5c18c072c726951a8657ba47\",\n   \"isGold\": false,\n   \"name\": \"maria.cruz\",\n   \"phone\": \"maria.cruz@gmail.com\" \n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/users.js",
+    "groupTitle": "Users"
+  },
+  {
+    "type": "post",
+    "url": "/api/users",
+    "title": "Insere um novo usuário",
+    "name": "PostUser",
+    "group": "Users",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "active",
+            "description": "<ul> <li>Se o usuário está ativo ou não</li> </ul>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<ul> <li>Nome do usuário</li> </ul>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<ul> <li>Senha do usuário</li> </ul>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<ul> <li>E-mail do usuário</li> </ul>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<ul> <li>id do usuario</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "active",
+            "description": "<ul> <li>se o usuário está ativo ou não</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<ul> <li>nome do usuário</li> </ul>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<ul> <li>E-mail do usuário</li> </ul>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"_id\": \"5c18c072c726951a8657ba47\", \n   \"active\": true,\n   \"name\": \"ricardo.souza\",\n   \"email\": \"ricardo.tecnology@gmail.com\"\n},",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/users.js",
+    "groupTitle": "Users"
   }
 ] });

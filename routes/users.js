@@ -5,6 +5,32 @@ const _        = require('lodash');
 const bcrypt   = require('bcrypt');
 const { User, validate } = require('../models/users');
 
+/**
+ * @api {get} /api/users/ Solicita lista de usuarios
+ * @apiName GetUsers
+ * @apiGroup Users
+ *
+ * @apiSuccess {String} _id - id do usuario
+ * @apiSuccess {Boolean} active - se o usuário está ativo ou não
+ * @apiSuccess {String} name - nome do usuário
+ * @apiSuccess {String} email - E-mail do usuário
+ * 
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *        "_id": "5c18c072c726951a8657ba47", 
+ *        "active": true,
+ *        "name": "ricardo.souza",
+ *        "email": "ricardo.tecnology@gmail.com"
+ *     }, 
+ *     {
+ *        "_id": "5c18c072c726951a8657ba47",
+ *        "isGold": false,
+ *        "name": "maria.cruz",
+ *        "phone": "maria.cruz@gmail.com" 
+ *     }
+ * 
+ */
 router.get('/', async (req, res) => {
 	try {
 		const users = await User
@@ -21,6 +47,26 @@ router.get('/', async (req, res) => {
 	}
 });
 
+/**
+ * @api {get} /api/users/ Solicita um usuário pelo seu ID
+ * @apiName GetUser
+ * @apiGroup Users
+ *
+ * @apiSuccess {String} _id - id do usuario
+ * @apiSuccess {Boolean} active - se o usuário está ativo ou não
+ * @apiSuccess {String} name - nome do usuário
+ * @apiSuccess {String} email - E-mail do usuário
+ * 
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *        "_id": "5c18c072c726951a8657ba47", 
+ *        "active": true,
+ *        "name": "ricardo.souza",
+ *        "email": "ricardo.tecnology@gmail.com"
+ *     }, 
+ * 
+ */
 router.get('/:id', async (req, res) => {
 	try {
 		const user = await User.findById(req.params.id)
@@ -35,6 +81,31 @@ router.get('/:id', async (req, res) => {
 	}
 });
 
+/**
+ * @api {post} /api/users Insere um novo usuário
+ * @apiName PostUser
+ * @apiGroup Users
+ * 
+ * @apiParam {Boolean} active - Se o usuário está ativo ou não
+ * @apiParam {String} name - Nome do usuário
+ * @apiParam {String} password - Senha do usuário
+ * @apiParam {String} email - E-mail do usuário
+ *
+ * @apiSuccess {String} _id - id do usuario
+ * @apiSuccess {Boolean} active - se o usuário está ativo ou não
+ * @apiSuccess {String} name - nome do usuário
+ * @apiSuccess {String} email - E-mail do usuário
+ * 
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *        "_id": "5c18c072c726951a8657ba47", 
+ *        "active": true,
+ *        "name": "ricardo.souza",
+ *        "email": "ricardo.tecnology@gmail.com"
+ *     },
+ *
+ */
 router.post('/', async (req, res) => {
 	const { error } = validate(req.body);
 	
@@ -57,6 +128,32 @@ router.post('/', async (req, res) => {
 	}
 });
 
+/**
+ * @api {put} /api/users/:id Edita um usuário no sistema
+ * @apiName EditUser
+ * @apiGroup Users
+ *
+ * @apiParam {number} id - unico do usuário
+ * @apiParam {Boolean} active - Se o usuário está ativo ou não
+ * @apiParam {String} name - nome do usuário
+ * @apiParam {String} email - Telefone do usuário
+ * @apiParam {String} password - Nova senha para o usuário
+ * 
+ * @apiSuccess {String} _id - id do usuario
+ * @apiSuccess {Boolean} active - se o usuário está ativo ou não
+ * @apiSuccess {String} name - nome do usuário
+ * @apiSuccess {String} email - E-mail do usuário
+ * 
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *        "_id": "5c18c072c726951a8657ba47", 
+ *        "active": true,
+ *        "name": "ricardo.souza",
+ *        "email": "ricardo.tecnology@gmail.com"
+ *     },
+ *
+ */
 router.put('/:id', async(req, res) => {
 	const { error } = validate(req.body);
 	

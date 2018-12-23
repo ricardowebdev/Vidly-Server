@@ -6,7 +6,7 @@ const { Genre, validate } = require('../models/genres');
 /**
  * @api {get} /api/gernres/ Solicita lista de generos
  * @apiName GetGenres
- * @apiGroup Genre
+ * @apiGroup Genres
  *
  * @apiSuccess {boolean} active - Se o gênero está ativo ou não
  * @apiSuccess {String} _id - id do genero
@@ -43,9 +43,9 @@ router.get('/', async (req, res) => {
 
 
 /**
- * @api {get} /api/genre/:id Solicita um gênero pelo id
+ * @api {get} /api/genres/:id Solicita um gênero pelo id
  * @apiName GetGenre
- * @apiGroup Genre
+ * @apiGroup Genres
  *
  * @apiParam {Number} id - unico do cliente.
  * 
@@ -76,9 +76,9 @@ router.get('/:id', async(req, res) => {
 });
 
 /**
- * @api {post} /api/genre Insere um novo gênero
+ * @api {post} /api/genres Insere um novo gênero
  * @apiName PostGenre
- * @apiGroup Genre
+ * @apiGroup Genres
  * 
  * @apiParam {Boolean} active - Se é cliente está ativo ou não 
  * @apiParam {String}  name - nome do gênero
@@ -120,9 +120,9 @@ router.post('/', async (req, res) => {
 });
 
 /**
- * @api {put} /api/genre/:id Edita um gênero
+ * @api {put} /api/genres/:id Edita um gênero
  * @apiName EditGenre
- * @apiGroup Genre
+ * @apiGroup Genres
  *
  * @apiParam {String} _id - id do genero
  * @apiParam {Boolean} active - Se é cliente está ativo ou não 
@@ -167,9 +167,9 @@ router.put('/:id', async (req, res) => {
 });
 
 /**
- * @api {delete} /api/genre/:id Remove um gênero
+ * @api {delete} /api/genres/:id Remove um gênero
  * @apiName DeleteGenre
- * @apiGroup Genre
+ * @apiGroup Genres
  * 
  * @apiParam {Number} id - unico do gênero
  *

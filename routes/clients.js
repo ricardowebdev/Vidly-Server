@@ -4,9 +4,9 @@ const router   = express.Router();
 const { Client, validate } = require('../models/clients');
 
 /**
- * @api {get} /api/client/ Solicita lista de clientes
+ * @api {get} /api/clients/ Solicita lista de clientes
  * @apiName GetClients
- * @apiGroup Client
+ * @apiGroup Clients
  *
  * @apiSuccess {boolean} isGold - Se é cliente Gold Ou não 
  * @apiSuccess {String} _id - id do cliente
@@ -42,9 +42,9 @@ router.get('/', async (req, res) => {
 });
 
 /**
- * @api {get} /api/client/:id Solicita um cliente pelo id
+ * @api {get} /api/clients/:id Solicita um cliente pelo id
  * @apiName GetClient
- * @apiGroup Client
+ * @apiGroup Clients
  *
  * @apiParam {Number} id - unico do cliente.
  * 
@@ -77,9 +77,9 @@ router.get('/:id', async (req, res) => {
 });
 
 /**
- * @api {post} /api/client Insere um novo cliente
+ * @api {post} /api/clients Insere um novo cliente
  * @apiName PostClient
- * @apiGroup Client
+ * @apiGroup Clients
  * 
  * @apiParam {Boolean} isGold - Se é cliente Gold Ou não 
  * @apiParam {String} name - nome do cliente
@@ -125,9 +125,9 @@ router.post('/', async (req, res) => {
 });
 
 /**
- * @api {put} /api/client/:id Edita um cliente
+ * @api {put} /api/clients/:id Edita um cliente
  * @apiName EditClient
- * @apiGroup Client
+ * @apiGroup Clients
  *
  * @apiParam {Boolean} isGold - Se é cliente Gold Ou não 
  * @apiParam {number} id - unico do cliente
@@ -177,9 +177,9 @@ router.put('/:id', async(req, res) => {
 });
 
 /**
- * @api {delete} /api/client/:id Remove um cliente
+ * @api {delete} /api/clients/:id Remove um cliente
  * @apiName DeleteClient
- * @apiGroup Client
+ * @apiGroup Clients
  * 
  * @apiParam {Number} id - unico do cliente
  *

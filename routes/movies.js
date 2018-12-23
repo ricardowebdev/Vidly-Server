@@ -6,7 +6,7 @@ const { Movie, validate } = require('../models/movies');
 /**
  * @api {get} /api/movies/ Solicita lista de filmes
  * @apiName GetMovies
- * @apiGroup Movie
+ * @apiGroup Movies
  * 
  * @apiSuccess {String} _id - id do filme
  * @apiSuccess {Number} numberInStock  - Numero de filmes em stock
@@ -60,7 +60,7 @@ router.get('/', async(req, res) => {
 /**
  * @api {get} /api/movies/:id Solicita um filme pelo ID
  * @apiName GetMovie
- * @apiGroup Movie
+ * @apiGroup Movies
  * 
  * @apiSuccess {String} _id - id do filme
  * @apiSuccess {Number} numberInStock  - Numero de filmes em stock
@@ -99,9 +99,9 @@ router.get('/:id', async(req, res) => {
 });
 
 /**
- * @api {post} /api/client Insere um novo filme
- * @apiName PostClient
- * @apiGroup Movie
+ * @api {post} /api/movies Insere um novo filme
+ * @apiName PostMovies
+ * @apiGroup Movies
  *
  * @apiParam {Number} numberInStock  - Numero de filmes em stock
  * @apiParam {Number} dailyRentalRate - Preço da diaria
@@ -179,9 +179,9 @@ router.post('/', async(req, res) => {
 });
 
 /**
- * @api {put} /api/client/:id Altera um cliente pelo id
- * @apiName PutClient
- * @apiGroup Movie
+ * @api {put} /api/movies/:id Altera um cliente pelo id
+ * @apiName PutMovies
+ * @apiGroup Movies
  *
  * @apiParam {Number} id - unico do cliente.
  * @apiParam {Number} numberInStock  - Numero de filmes em stock
@@ -265,9 +265,9 @@ router.put('/:id', async(req, res) => {
 });
 
 /**
- * @api {delete} /api/movie/:id Remove um filme
+ * @api {delete} /api/movies/:id Remove um filme
  * @apiName DeleteMovie
- * @apiGroup Movie
+ * @apiGroup Movies
  * 
  * @apiParam {Number} id - unico do gênero
  *
