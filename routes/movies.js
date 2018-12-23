@@ -1,9 +1,48 @@
 const express   = require('express');
-const mongoose  = require('mongoose');
 const router    = express.Router();
 const { Genre } = require('../models/genres');
 const { Movie, validate } = require('../models/movies');
 
+/**
+ * @api {get} /api/movies/ Solicita lista de filmes
+ * @apiName GetMovies
+ * @apiGroup Movie
+ * 
+ * @apiSuccess {String} _id - id do filme
+ * @apiSuccess {Number} numberInStock  - Numero de filmes em stock
+ * @apiSuccess {Number} dailyRentalRate - Preço da diaria
+ * @apiSuccess {String} title - Titulo do filme
+ * @apiSuccess {Object} genre - Gênero do filme
+ * @apiSuccess {String} genre.active - Se o gênero está ativo ou não
+ * @apiSuccess {String} genre._id - Id unico do gênero
+ * @apiSuccess {String} genre.name - Nome do Gênero
+ * 
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *        "_id": "5c16cac2932de1301f063d63", 
+ *        "numberInStock": 2,
+ *        "dailyRentalRate": 3,
+ *        "title": "O pequenino",
+ *        "genre": {
+ *          "_id": "5bf7c785b9ff941f03a238bd",
+ *          "active": true,
+ *          "name": "comedy"
+ *        }
+ *     }, 
+ *     {
+ *        "_id": "5c16cb83932de1301f063d72", 
+ *        "numberInStock": 1,
+ *        "dailyRentalRate": 5,
+ *        "title": "Batman Begins",
+ *        "genre": {
+ *          "_id": "5bf7c770b9ff941f03a238bb",
+ *          "active": true,
+ *          "name": "Ação"
+ *        }
+ *     }
+ * 
+ */
 router.get('/', async(req, res) => {
 	try {
 		const movies = await Movie.find()
@@ -18,6 +57,35 @@ router.get('/', async(req, res) => {
 	}
 });
 
+/**
+ * @api {get} /api/movies/:id Solicita um filme pelo ID
+ * @apiName GetMovie
+ * @apiGroup Movie
+ * 
+ * @apiSuccess {String} _id - id do filme
+ * @apiSuccess {Number} numberInStock  - Numero de filmes em stock
+ * @apiSuccess {Number} dailyRentalRate - Preço da diaria
+ * @apiSuccess {String} title - Titulo do filme
+ * @apiSuccess {Object} genre - Gênero do filme
+ * @apiSuccess {String} genre.active - Se o gênero está ativo ou não
+ * @apiSuccess {String} genre._id - Id unico do gênero
+ * @apiSuccess {String} genre.name - Nome do Gênero
+ * 
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *        "_id": "5c16cac2932de1301f063d63", 
+ *        "numberInStock": 2,
+ *        "dailyRentalRate": 3,
+ *        "title": "O pequenino",
+ *        "genre": {
+ *          "_id": "5bf7c785b9ff941f03a238bd",
+ *          "active": true,
+ *          "name": "comedy"
+ *        }
+ *     }
+ * 
+ */
 router.get('/:id', async(req, res) => {
 	try {
 		const movie = await Movie.findById(req.params.id);
@@ -30,6 +98,42 @@ router.get('/:id', async(req, res) => {
 	}
 });
 
+/**
+ * @api {post} /api/client/:id Insere um novo filme
+ * @apiName PostClient
+ * @apiGroup Movie
+ *
+ * @apiParam {Number} id - unico do cliente.
+ * @apiParam {Number} numberInStock  - Numero de filmes em stock
+ * @apiParam {Number} dailyRentalRate - Preço da diaria
+ * @apiParam {String} title - Titulo do filme
+ * @apiParam {Object} genre - Gênero do filme
+ * @apiSuccess {String} genre.id - Id unico do gênero 
+ * 
+ * @apiSuccess {String} _id - id do filme
+ * @apiSuccess {Boolean} numberInStock  - Numero de filmes em stock
+ * @apiSuccess {String} dailyRentalRate - Preço da diaria
+ * @apiSuccess {String} title - Titulo do filme
+ * @apiSuccess {Object} genre - Gênero do filme
+ * @apiSuccess {String} genre.active - Se o gênero está ativo ou não
+ * @apiSuccess {String} genre._id - Id unico do gênero
+ * @apiSuccess {String} genre.name - Nome do Gênero
+ * 
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *        "_id": "5c16cac2932de1301f063d63", 
+ *        "numberInStock": 2,
+ *        "dailyRentalRate": 3,
+ *        "title": "O pequenino",
+ *        "genre": {
+ *          "_id": "5bf7c785b9ff941f03a238bd",
+ *          "active": true,
+ *          "name": "comedy"
+ *        }
+ *     }
+ *
+ */
 router.post('/', async(req, res) => {
 	let genre;
 	let movie;

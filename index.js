@@ -1,7 +1,7 @@
 // Includes da aplicação
-const express    = require('express');
-const mongoose   = require('mongoose'); 
-const cors       = require('cors');
+const express  = require('express');
+const mongoose = require('mongoose'); 
+const cors     = require('cors');
 const emails   = require('./routes/email');
 const genres   = require('./routes/genres');
 const clients  = require('./routes/clients');
@@ -13,6 +13,7 @@ const port     = process.env.PORT || 3000;
 
 // Preparando a API
 app.use(express.json());
+app.use(express.static('public'));
 app.use(cors());
 
 // Rotas da API

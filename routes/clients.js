@@ -3,6 +3,32 @@ const express  = require('express');
 const router   = express.Router();
 const { Client, validate } = require('../models/clients');
 
+/**
+ * @api {get} /api/client/ Solicita lista de clientes
+ * @apiName GetClients
+ * @apiGroup Client
+ *
+ * @apiSuccess {boolean} isGold - Se é cliente Gold Ou não 
+ * @apiSuccess {String} _id - id do cliente
+ * @apiSuccess {String} name - nome do cliente
+ * @apiSuccess {String} phone - Telefone do cliente
+ * 
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *        "_id": "5bf4088f5d6b7145b98415c6", 
+ *        "isGold": true,
+ *        "name": "Ricardo dos Santos Souza",
+ *        "phone": "11991346177"
+ *     }, 
+ *     {
+ *        "_id": "5bf4088f5d6b7145b98426d4",
+ *        "isGold": true,
+ *        "name": "Oswaldo Cruz",
+ *        "phone": "11924568399" 
+ *     }
+ * 
+ */
 router.get('/', async (req, res) => {
 	try {
 		const clients = await Client
@@ -15,6 +41,28 @@ router.get('/', async (req, res) => {
 	}
 });
 
+/**
+ * @api {get} /api/client/:id Solicita um cliente pelo id
+ * @apiName GetClient
+ * @apiGroup Client
+ *
+ * @apiParam {Number} id - unico do cliente.
+ * 
+ * @apiSuccess {String} _id - id do cliente
+ * @apiSuccess {Boolean} isGold - Se é cliente Gold Ou não 
+ * @apiSuccess {String} name - nome do cliente
+ * @apiSuccess {String} phone - Telefone do cliente
+ * 
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *        "_id": "5bf4088f5d6b7145b98415c6",
+ *        "isGold": true,
+ *        "name": "Ricardo dos Santos Souza",
+ *        "phone": "11991346177" 
+ *     }
+ *
+ */
 router.get('/:id', async (req, res) => {
 	try {
 		const client = await Client.findById(req.params.id)
@@ -28,6 +76,30 @@ router.get('/:id', async (req, res) => {
 	}
 });
 
+/**
+ * @api {post} /api/client Insere um novo cliente
+ * @apiName PostClient
+ * @apiGroup Client
+ * 
+ * @apiParam {Boolean} isGold - Se é cliente Gold Ou não 
+ * @apiParam {String} name - nome do cliente
+ * @apiParam {String} phone - Telefone do cliente
+ *
+ * @apiSuccess {Boolean} isGold - Se é cliente Gold Ou não 
+ * @apiSuccess {string} _id - id unico do cliente
+ * @apiSuccess {String} name - nome do cliente
+ * @apiSuccess {String} phone - Telefone do cliente
+ * 
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *        "_id": "5bf4088f5d6b7145b98415c6",
+ *        "isGold": true,
+ *        "name": "Ricardo dos Santos Souza",
+ *        "phone": "11991346177" 
+ *     }
+ *
+ */
 router.post('/', async (req, res) => {
 	const { error } = validate(req.body);
 	
@@ -52,6 +124,30 @@ router.post('/', async (req, res) => {
 	}
 });
 
+/**
+ * @api {put} /api/client/:id Edita um cliente
+ * @apiName EditClient
+ * @apiGroup Client
+ *
+ * @apiParam {Boolean} isGold - Se é cliente Gold Ou não 
+ * @apiParam {number} id - unico do cliente
+ * @apiParam {String} name - nome do cliente
+ * @apiParam {String} phone - Telefone do cliente
+ * 
+ * @apiSuccess {Boolean} isGold - Se é cliente Gold Ou não 
+ * @apiSuccess {String} name - nome do cliente
+ * @apiSuccess {String} phone - Telefone do cliente
+ * 
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *        "_id": "5bf4088f5d6b7145b98415c6",
+ *        "isGold": true,
+ *        "name": "Ricardo dos Santos Souza",
+ *        "phone": "11991346177" 
+ *     }
+ *
+ */
 router.put('/:id', async(req, res) => {
 	const { error } = validate(req.body);
 	
@@ -80,12 +176,32 @@ router.put('/:id', async(req, res) => {
 	}
 });
 
+/**
+ * @api {delete} /api/client/:id Remove um cliente
+ * @apiName DeleteClient
+ * @apiGroup Client
+ * 
+ * @apiParam {Number} id - unico do cliente
+ *
+ * @apiSuccess {Boolean} isGold - Se é cliente Gold Ou não 
+ * @apiSuccess {String} name - nome do cliente
+ * @apiSuccess {String} phone - Telefone do cliente
+ * 
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *        "_id": "5bf4088f5d6b7145b98415c6",
+ *        "isGold": true,
+ *        "name": "Ricardo dos Santos Souza",
+ *        "phone": "11991346177" 
+ *     }
+ *
+ */
 router.delete('/:id', async(req, res) => {
 	try {
 		const client = await Client.findById({ _id: req.params.id });
 
-		if(!client)
-			throw new Error("Client not found");
+		if(!client) { throw new Error("Client not found"); }			
 
 		result = await client.remove();
 
