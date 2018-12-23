@@ -2,7 +2,6 @@
 const express    = require('express');
 const mongoose   = require('mongoose'); 
 const cors       = require('cors');
-const emails     = require('./routes/email');
 const genres     = require('./routes/genres');
 const clients    = require('./routes/clients');
 const movies     = require('./routes/movies');
